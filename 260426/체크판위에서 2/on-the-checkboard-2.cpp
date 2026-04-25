@@ -4,11 +4,13 @@ using namespace std;
 
 int main() {
     // Please write your code here.
-    int count = 0;
+    int count =0;
     int rows;
     int cols;
     cin >> rows >> cols;
     vector<vector<char>> arr(rows,vector<char>(cols));
+
+
     for(int i = 0; i < rows; i++)
     {
         for(int j = 0; j < cols; j++)
@@ -16,6 +18,9 @@ int main() {
             cin >> arr[i][j];
         }
     }
+    if(arr[0][0] == arr[rows-1][cols-1]) count = 0;
+    else{
+
     for(int i = 1;  i <rows; i++)
     {
         for(int j = 1; j < cols; j++)
@@ -35,6 +40,7 @@ int main() {
 
         }
     }
+}
     cout << count;
 
     return 0;
