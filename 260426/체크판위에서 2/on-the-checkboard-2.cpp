@@ -21,19 +21,13 @@ int main() {
         for(int j = 1; j < cols; j++)
         {
             if(arr[0][0] != arr[i][j]){
-                for(int z = i+1; z < rows; z++)
+                for(int z = i+1; z < rows-1; z++)
                 {
-                    for(int l = j+1; l< cols; l++)
+                    for(int l = j+1; l< cols-1; l++)
                     {
                         if(arr[z][l] != arr[i][j])
                         {
-                            for(int a = z+1; a <rows; a++)
-                            {
-                                for(int b = l+1; b<cols; b++)
-                                {
-                                    if(arr[a][b] != arr[z][l]) count++;
-                                }
-                            }
+                            count++;
                         }
                     }
                 }
