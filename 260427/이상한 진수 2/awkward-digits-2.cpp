@@ -25,22 +25,14 @@ int main() {
         else temp.push_back(1);
         a /= 10;
     }
-    int end = temp.size()-1;
-    int start = 0;
-    for(int i = 0; i < temp.size();i++)
+    for(int i = temp.size()-1; i >=0;i--)
     {
-        if(temp[end] == 0 )
-        { 
-        temp[end] = 1;
-        break;
-        }
-        if(temp[start] == 1)
+        if(temp[i] ==0)
         {
-            temp[start] =0;
-            break;
+            temp[i] = 1;
+            break; 
         }
-        end--;
-        start++;
+        if(i== 0) temp[i] = 0;
 
     }
     
