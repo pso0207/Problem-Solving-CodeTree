@@ -14,7 +14,11 @@ int main() {
     int result = 0;
     int mul = 1;
     vector<int> temp;
-    if(a == 1) temp.push_back(1);
+    if(a == 1) 
+    {
+        cout << 0;
+        return 0;
+    }
     while(a != 0)
     {
         if(!is_odd(a)) temp.push_back(0);
