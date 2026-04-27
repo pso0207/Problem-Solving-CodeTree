@@ -25,10 +25,23 @@ int main() {
         else temp.push_back(1);
         a /= 10;
     }
-    for(int i = temp.size()-1; i > 0; i--)
+    int end = temp.size()-1;
+    int start = 0;
+    for(int i = 0; i < temp.size();i++)
     {
-        if(temp[i-1] == 0 ) temp[i-1] = 1;
+        if(temp[end] == 0 )
+        { 
+        temp[end] = 1;
         break;
+        }
+        if(temp[start] == 1)
+        {
+            temp[start] =0;
+            break;
+        }
+        end--;
+        start++;
+
     }
     
     for(int& i : temp)
@@ -36,5 +49,6 @@ int main() {
         result += i * mul;
         mul *=2;
     }
+    
     cout << result;
 }
