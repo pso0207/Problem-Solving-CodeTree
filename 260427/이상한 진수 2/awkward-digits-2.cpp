@@ -14,6 +14,7 @@ int main() {
     int result = 0;
     int mul = 1;
     vector<int> temp;
+    if(a == 1) temp.push_back(1);
     while(a != 0)
     {
         if(!is_odd(a)) temp.push_back(0);
@@ -25,6 +26,7 @@ int main() {
         if(temp[i-1] == 0 ) temp[i-1] = 1;
         break;
     }
+    
     for(int& i : temp)
     {
         result += i * mul;
