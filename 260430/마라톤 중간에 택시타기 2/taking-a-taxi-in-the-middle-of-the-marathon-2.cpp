@@ -12,30 +12,31 @@ struct Pos{
 };
 int main() {
     // Please write your code here.
-    int max_dis = INT_MIN;
+    int max_dis = INT_MAX;
+    int result = 0;
     int N;
     cin >> N;
     vector<Pos> pos;
-    vector<int> dis;
     for(int i = 0; i < N; i++)
     {
         Pos temp;
         cin >> temp.x >> temp.y;
         pos.push_back(temp);
     }
-    for(int i = 0; i < N-1; i++)
+    for(int i =1 ; i < N-1; i++)
     {
-        dis.push_back(abs(pos[i].x -pos[i+1].x) + abs(pos[i].y - pos[i+1].y));
-    }
-    int max_idx = max_element(dis.begin(),dis.end())-dis.begin();
-    int result = 0;
-    pos.erase(pos.begin()+ max_idx+1);
-    for(int i = 0; i < pos.size()-1; i++)
-    {
-        result += abs(pos[i].x -pos[i+1].x) + abs(pos[i].y - pos[i+1].y);
-    }
+        result =0;
+        Pos temp = pos[i];
+        pos.erase(pos.begin()+ i);
+        for(int j = 0; j < N-2; j++)
+        {
+            result += (abs(pos[j].x - pos[j+1].x) + abs(pos[j].y - pos[j+1].y));
+        }
     
-    cout << result;
-    return 0;
+        pos.insert(pos.begin() + i,temp);
+        max_dis = min(result, max_dis);
+    }
+    cout << max_dis;
+
 }
 
