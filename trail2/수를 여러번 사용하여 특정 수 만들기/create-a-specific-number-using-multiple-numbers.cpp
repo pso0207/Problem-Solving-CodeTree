@@ -6,19 +6,14 @@ int main() {
     int A, B, C;
     cin >> A >> B >> C;
     int result = 0;
-    for(int i = 0; i < 1000; i++)
+    for(int i = 0; i <= C/A; i++) // A를 고른 횟수
     {
-        int temp = C;
-        temp -= i * A;
-        if(temp < 0){
-            break;
-        }
-        while(temp >= 0){
-            temp -= B;
-        }
-        temp += B;
-        result = max(result, C-temp);
+        int temp = i * A; 
+        int count_B = (C -temp) /B;
+        
+        result = max(result, temp + B*count_B);
     }
     cout << result;
 
 }
+
