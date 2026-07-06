@@ -7,16 +7,15 @@ vector<int> num;
 
 bool is_possible(int max_num)
 {
-    vector<int> temp;
+    int last_idx = 0;
     for(int i = 0; i < N; i++)
     {
         if(num[i] <= max_num)
-            temp.push_back(i);
-    }
-    for(int i = 1; i < temp.size(); i++)
-    {
-        int dist = temp[i] - temp[i-1];
-        if(dist > K) return false;
+        {
+            if(i - last_idx > K)
+                return false;
+            last_idx = i;
+        }
     }
     return true;
 }
@@ -31,6 +30,8 @@ int main() {
         cin >> temp;
         num.push_back(temp);
     }
+    // 처음과 끝은 무조건 지나는 지점이다
+    // 최댓값의 최소이기 때문에 이 지점보다 작을 순 없다.
     for(int i = max(num[0], num[N-1]); i <= 100 ; i++){
         if(is_possible(i)) min_num = min(i,min_num);
     }
