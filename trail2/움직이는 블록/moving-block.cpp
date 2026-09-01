@@ -13,21 +13,11 @@ int main() {
     for(int i =0; i < N; i++){
         cin >> a[i];
     }
-    int target = accumulate(a.begin(), a.end(), 0) / N;
+    int avg = accumulate(a.begin(), a.end(), 0) / N;
 
     for(int i = 0; i < N; i++){
-        while(a[i] != target){
-            if(a[i] > target) {
-                a[i]--;
-                result++;
-            }
-            else if(a[i] < target) {
-                a[i]++;
-                result++;
-            } 
-        }
+        if(a[i] > avg) result += a[i] - avg;
     }
-    cout << result/2;
-
+    cout << result;
     return 0;
 }
